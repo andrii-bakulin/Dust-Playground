@@ -98,12 +98,10 @@ namespace DustEngine
             dynamicState ^= sequenceIndex * 291422 + (Dust.IsNotNull(remapping) ? remapping.GetDynamicStateHashCode() : 123456);
         }
 
-#if DUST_ALPHA_DEFORMERS
         public static void Append(ref int dynamicState, int sequenceIndex, DuDeformer deformer)
         {
             dynamicState ^= sequenceIndex * 291422 + (Dust.IsNotNull(deformer) ? deformer.GetDynamicStateHashCode() : 123456);
         }
-#endif
 
         public static void Append(ref int dynamicState, int sequenceIndex, FieldsMap fieldsMap)
         {
