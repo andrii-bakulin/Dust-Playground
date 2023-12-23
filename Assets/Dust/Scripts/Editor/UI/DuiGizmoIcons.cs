@@ -37,6 +37,10 @@ namespace DustEngine.DustEditor
             SetGizmoIconEnabled<Scale>(false);
             SetGizmoIconEnabled<Shake>(false);
             
+#if DUST_NEW_FEATURE_DEFORMER
+            // Deformers
+#endif
+            
             // Events
             SetGizmoIconEnabled<OnCollision2DEvent>(false);
             SetGizmoIconEnabled<OnCollisionEvent>(false);
@@ -46,11 +50,42 @@ namespace DustEngine.DustEditor
             SetGizmoIconEnabled<OnTrigger2DEvent>(false);
             SetGizmoIconEnabled<OnTriggerEvent>(false);
             
+#if DUST_NEW_FEATURE_FACTORY
+            // Factory
+#endif
+            
+            // Fields:2D
+            SetGizmoIconEnabled<DirectionalField>(false);
+            SetGizmoIconEnabled<RadialField>(false);
+            SetGizmoIconEnabled<TextureSpaceField>(false);
+            SetGizmoIconEnabled<WaveField>(false);
+            // Fields:3D
+            SetGizmoIconEnabled<ConeField>(false);
+            SetGizmoIconEnabled<CubeField>(false);
+            SetGizmoIconEnabled<CylinderField>(false);
+            SetGizmoIconEnabled<SphereField>(false);
+            SetGizmoIconEnabled<TorusField>(false);
+            // Fields:Basic
+            SetGizmoIconEnabled<ConstantField>(false);
+            SetGizmoIconEnabled<CoordinatesField>(false);
+            SetGizmoIconEnabled<NoiseField>(false);
+            SetGizmoIconEnabled<TimeField>(false);
+            // Fields:Math
+            SetGizmoIconEnabled<ClampField>(false);
+            SetGizmoIconEnabled<CurveField>(false);
+            SetGizmoIconEnabled<FitField>(false);
+            SetGizmoIconEnabled<InvertField>(false);
+            SetGizmoIconEnabled<RemapField>(false);
+            SetGizmoIconEnabled<RoundField>(false);
+            // Fields
+            SetGizmoIconEnabled<FieldsSpace>(false);
+            
             // Gizmos
             SetGizmoIconEnabled<ArrowGizmo>(false);
             SetGizmoIconEnabled<ConeGizmo>(false);
             SetGizmoIconEnabled<CubeGizmo>(false);
             SetGizmoIconEnabled<CylinderGizmo>(false);
+            SetGizmoIconEnabled<FieldGizmo>(false);
             SetGizmoIconEnabled<MeshGizmo>(false);
             SetGizmoIconEnabled<PyramidGizmo>(false);
             SetGizmoIconEnabled<SphereGizmo>(false);
@@ -70,7 +105,7 @@ namespace DustEngine.DustEditor
 
         private static MethodInfo setIconEnabled;
             
-        private static void SetGizmoIconEnabled<T>(bool isEnabled)
+        public static void SetGizmoIconEnabled<T>(bool isEnabled)
         {
             const int MONO_BEHAVIOR_CLASS_ID = 114; // https://docs.unity3d.com/Manual/ClassIDReference.html
 

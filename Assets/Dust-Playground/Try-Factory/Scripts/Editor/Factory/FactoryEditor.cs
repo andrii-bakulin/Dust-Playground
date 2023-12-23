@@ -390,14 +390,14 @@ namespace DustEngine.DustEditor
                 var machineEnabledInScene = newRecord.factoryMachine.enabled &&
                                             newRecord.factoryMachine.gameObject.activeInHierarchy;
 
-                var machineIcon = Playground.UI.Icons.GetTextureByComponent(newRecord.factoryMachine, !machineEnabledInScene ? "Disabled" : "");
+                var machineIcon = UI.Icons.GetTextureByComponent(newRecord.factoryMachine, !machineEnabledInScene ? "Disabled" : "");
 
                 if (DustGUI.IconButton(machineIcon, CELL_WIDTH_ICON, CELL_WIDTH_ICON, UI.ExtraList.styleMiniButton))
                     Selection.activeGameObject = newRecord.factoryMachine.gameObject;
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                var btnStateIcon = newRecord.enabled ? Playground.UI.Icons.STATE_ENABLED : Playground.UI.Icons.STATE_DISABLED;
+                var btnStateIcon = newRecord.enabled ? UI.Icons.STATE_ENABLED : UI.Icons.STATE_DISABLED;
 
                 if (DustGUI.IconButton(btnStateIcon, CELL_WIDTH_STATE, 32f, UI.ExtraList.styleMiniButton))
                     newRecord.enabled = !newRecord.enabled;
@@ -454,7 +454,7 @@ namespace DustEngine.DustEditor
 
                 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                clickOnDelete = DustGUI.IconButton(Playground.UI.Icons.ACTION_DELETE, 20, 32, UI.ExtraList.styleMiniButton);
+                clickOnDelete = DustGUI.IconButton(UI.Icons.DELETE, 20, 32, UI.ExtraList.styleMiniButton);
 
                 DustGUI.BeginVertical(20);
                 {
@@ -503,7 +503,7 @@ namespace DustEngine.DustEditor
         {
             DustGUI.BeginHorizontal();
             {
-                if (DustGUI.IconButton(Playground.UI.Icons.ACTION_ADD_FACTORY_MACHINE, CELL_WIDTH_ICON, CELL_WIDTH_ICON, UI.ExtraList.styleMiniButton))
+                if (DustGUI.IconButton(UI.Icons.ADD_FACTORY_MACHINE, CELL_WIDTH_ICON, CELL_WIDTH_ICON, UI.ExtraList.styleMiniButton))
                     PopupWindow.Show(m_RectsUI["Add"], FactoryMachinesPopupButtons.Popup(this));
 
                 if (Event.current.type == EventType.Repaint)
